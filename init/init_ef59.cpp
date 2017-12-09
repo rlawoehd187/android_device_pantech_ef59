@@ -25,18 +25,13 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
-#include <fcntl.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/types.h>
+#include <stdlib.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
 #include "util.h"
 
-#include <stdlib.h>
+#include <cutils/properties.h>
 
 #define ISMATCH(a,b)    (!strncmp(a,b,PROP_VALUE_MAX))
 
@@ -48,7 +43,7 @@ void vendor_load_properties()
     char device_buf[PROP_VALUE_MAX];
     FILE *fp = NULL;
 
-    platform = read("ro.board.platform");
+    platform = property_get("ro.board.platform");
     if (platform != ANDROID_TARGET)
         return;
 
