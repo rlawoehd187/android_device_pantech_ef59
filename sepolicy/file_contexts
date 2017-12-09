@@ -10,7 +10,7 @@
 # Rawdata
 /dev/block/platform/msm_sdcc.1/by-name/phoneinfo              u:object_r:info_block_device:s0
 # Persist filesystem
-/dev/block/platform/msm_sdcc\.1/by-name/persist         u:object_r:persist_block_device:s0
+/dev/block/platform/msm_sdcc.1/by-name/persist         u:object_r:persist_block_device:s0
 
 # NFC
 /dev/pn54.*                                              u:object_r:nfc_device:s0
