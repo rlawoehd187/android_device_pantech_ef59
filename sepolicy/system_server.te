@@ -1,0 +1,4 @@
+# examine battery state
+r_dir_file(system_server, sysfs_usb_supply);
+allow system_server unlabeled:file unlink;
+allow system_server tmpfs:file open;
