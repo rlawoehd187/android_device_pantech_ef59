@@ -24,14 +24,13 @@
    OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+using android::base::GetProperty;
 
 #include <stdlib.h>
 
 #include <android-base/properties.h>
 #include "vendor_init.h"
 #include "property_service.h"
-
-using android::base::GetProperty;
 
 #define ISMATCH(a,b)    (!strncmp(a,b,PROP_VALUE_MAX))
 
@@ -45,10 +44,7 @@ void vendor_load_properties()
 
     platform = GetProperty("ro.board.platform");
     if (platform != ANDROID_TARGET)
-    {
-        INFO("Failed to open info for board version read");
         return;
-    }
 
     fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/phoneinfo", "r");
     if ( fp == NULL )
