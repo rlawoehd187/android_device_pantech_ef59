@@ -1,1 +1,4 @@
-allow init tmpfs:file relabelfrom;
+#============= init ==============
+allow init info_block_device:blk_file { getattr open read };
+allow info_block_device tmpfs:filesystem associate;
+allow init debugfs:file write;
