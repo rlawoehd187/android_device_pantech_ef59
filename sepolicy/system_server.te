@@ -1,3 +1,0 @@
-#============= system_server ==============
-allow system_server sysfs_vibeamp:dir search;
-allow system_server sysfs_vibeamp:file { getattr open read write };

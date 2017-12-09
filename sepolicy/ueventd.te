@@ -1,4 +1,0 @@
-#============= ueventd ==============
-allow ueventd info_block_device:blk_file { relabelfrom relabelto setattr create };
-allow ueventd sysfs_vibeamp:file { write open };
-
