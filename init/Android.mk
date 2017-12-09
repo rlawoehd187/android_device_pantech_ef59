@@ -16,6 +16,10 @@
 
 LOCAL_PATH := $(call my-dir)
 
+LOCAL_C_INCLUDES := \
+    system/core/base/include \
+    system/core/init
+
 include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2016, The LineageOS Project
+   Copyright (c) 2016, The CyanogenMod Project
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -29,6 +29,7 @@
 
 #include "vendor_init.h"
 #include "property_service.h"
+#include "log.h"
 #include "util.h"
 
 #define ISMATCH(a,b)    (!strncmp(a,b,PROP_VALUE_MAX))
@@ -47,7 +48,10 @@ void vendor_load_properties()
 
     fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/phoneinfo", "r");
     if ( fp == NULL )
+    {
+        INFO("Failed to open info for board version read");
         return;
+    }
     else
     {
         fseek(fp,0x24,SEEK_SET);
@@ -56,6 +60,9 @@ void vendor_load_properties()
         fclose(fp);
     }
 
+    property_set("persist.sys.usb.control", "disable");
+    property_set("persist.sys.isUsbOtgEnabled", "true");
+    property_set("persist.pantech.usb.version=0", "0");
     property_set("ro.product.model", device_buf);
 
     if (strstr(device_buf, "IM-A890S")) 
