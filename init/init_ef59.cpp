@@ -47,10 +47,7 @@ void vendor_load_properties()
 
     fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/phoneinfo", "r");
     if ( fp == NULL )
-    {
-        INFO("Failed to open info for board version read");
         return;
-    }
     else
     {
         fseek(fp,0x24,SEEK_SET);
