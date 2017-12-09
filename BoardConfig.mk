@@ -50,7 +50,7 @@ BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := lineage_ef59_defconfig
 TARGET_KERNEL_SOURCE := kernel/pantech/msm8x74
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := ~/arm-eabi-4.8/bin/arm-eabi-
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
