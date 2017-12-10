@@ -18,7 +18,7 @@ TW_USE_TOOLBOX := true
 
 # TWRP FSTAB
 PRODUCT_COPY_FILES += \
-    device/pantech/msm8974-common/rootdir/etc/twrp.fstab:recovery/root/etc/twrp.fstab
+    device/pantech/ef59/rootdir/etc/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # TWRP UI
 DEVICE_RESOLUTION 		:= 1080x1920

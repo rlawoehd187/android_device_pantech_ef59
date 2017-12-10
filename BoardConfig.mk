@@ -15,9 +15,6 @@
 # limitations under the License.
 #
 
-# inherit from msm8974 common
--include device/msm8974-common/BoardConfigCommon.mk
-
 PLATFORM_PATH := device/pantech/ef59
 
 # Include path
@@ -50,7 +47,7 @@ BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := lineage_ef59_defconfig
 TARGET_KERNEL_SOURCE := kernel/pantech/msm8x74
-# TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -145,9 +142,6 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_INIT_VENDOR_LIB := libinit_ef59
 TARGET_RECOVERY_DEVICE_MODULES := libinit_ef59
 
-# ReleaseTools
-TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)/releasetools
-
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
@@ -169,6 +163,12 @@ TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
 # RPC
 TARGET_NO_RPC := true
+
+# SELinux
+#include device/qcom/sepolicy/sepolicy.mk
+
+#BOARD_SEPOLICY_DIRS += \
+#    $(PLATFORM_PATH)/sepolicy
 
 # Time service
 BOARD_USES_QC_TIME_SERVICES := true
@@ -197,7 +197,7 @@ WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
 # TWRP Support - Optional
 ifeq ($(WITH_TWRP),true)
--include device/pantech/msm8974-common/twrp.mk
+-include device/pantech/ef59/twrp.mk
 endif
 
 -include vendor/pantech/msm8974-common/BoardConfigVendor.mk
