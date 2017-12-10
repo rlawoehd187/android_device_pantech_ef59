@@ -21,7 +21,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Button illumination -->
-    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+    <add-resource type="bool" name="config_deviceHasVariableButtonBrightness">true</add-resource>
 
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -35,7 +35,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">71</integer>
+    <add-resource type="integer" name="config_deviceHardwareKeys">71</add-resource>
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -49,10 +49,10 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">65</integer>
+    <add-resource type="integer" name="config_deviceHardwareWakeKeys">65</add-resource>
 
-    <integer name="config_longPressOnMenuBehavior">2</integer>
+    <add-resource type="integer" name="config_longPressOnMenuBehavior">2</add-resource>
 
     <!-- Enable blur support -->
-    <bool name="config_uiBlurEnabled">true</bool>
+    <add-resource type="bool" name="config_uiBlurEnabled">true</add-resource>
 </resources>
