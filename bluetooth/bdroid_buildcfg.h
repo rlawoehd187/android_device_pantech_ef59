@@ -19,7 +19,7 @@
 
 #define BLUETOOTH_QTI_SW TRUE
 
-#define BTM_DEF_LOCAL_NAME   "VEGA Secret Note"
+#define BTM_DEF_LOCAL_NAME   "Vega Secret Note"
 // Disables read remote device feature
 #define BTA_SKIP_BLE_READ_REMOTE_FEAT FALSE
 #define MAX_L2CAP_CHANNELS    16

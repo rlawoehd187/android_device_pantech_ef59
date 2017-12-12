@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The LineageOS Project
+# Copyright (C) 2016 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,12 +14,7 @@
 # limitations under the License.
 #
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-# Checking model
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/releasetools/device_check.sh:system/bin/device_check.sh
-
-# Inherit from msm8974-common
-$(call inherit-product, device/pantech/msm8974-common/msm8974.mk)
+def FullOTA_InstallEnd(info):
+    info.script.Mount("/system");
+    info.script.AppendExtra('assert(run_program("/system/bin/device_check.sh") == 0);');
+    info.script.Unmount("/system");

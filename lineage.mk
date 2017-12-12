@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2016 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,28 +15,24 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from bacon device
+# Inherit from ef63 device
 $(call inherit-product, device/pantech/ef59/ef59.mk)
 
-# Inherit some common CM stuff.
+# Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+# Call the proprietary setup
+$(call inherit-product-if-exists, vendor/pantech/ef59/ef59-vendor.mk)
 
 PRODUCT_NAME := lineage_ef59
 PRODUCT_DEVICE := ef59
 PRODUCT_MANUFACTURER := PANTECH
-PRODUCT_MODEL := IM-A890
-
-PRODUCT_GMS_CLIENTID_BASE := android-pantech
+PRODUCT_MODEL := VEGA SECRET NOTE
 
 PRODUCT_BRAND := PANTECH
 TARGET_VENDOR := PANTECH
 TARGET_VENDOR_PRODUCT_NAME := ef59
-TARGET_VENDOR_DEVICE_NAME := IM-A890
-PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=IM-A890 PRODUCT_NAME=ef59
+TARGET_VENDOR_DEVICE_NAME := ef59
 
-## Use the latest approved GMS identifiers unless running a signed build
-ifneq ($(SIGN_BUILD),true)
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=PANTECH/ef59/IM-A890:6.0.1/MHC19Q/ZNH2KAS1KN:user/release-keys \
-    PRIVATE_BUILD_DESC="ef59-user 6.0.1 MHC19Q ZNH2KAS1KN release-keys"
-endif
+# Enable SU
+WITH_SU := true

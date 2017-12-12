@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "lights.KaoTD"
+#define LOG_TAG "lights.debug"
 
 #include <cutils/log.h>
 #include <stdint.h>
