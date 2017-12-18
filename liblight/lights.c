@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "lights.debug"
+#define LOG_TAG "lights.TekCafe"
 
 #include <cutils/log.h>
 #include <stdint.h>

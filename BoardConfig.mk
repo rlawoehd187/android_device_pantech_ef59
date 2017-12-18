@@ -14,21 +14,18 @@
 # limitations under the License.
 #
 
-PLATFORM_PATH := device/pantech/ef59
+PLATFORM_PATH := device/pantech/ef58
 # Inherit from msm8974-common
 -include device/pantech/msm8974-common/BoardConfigCommon.mk
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := ef59l,ef59s,ef59k,ef59
+TARGET_OTA_ASSERT_DEVICE := ef59,ef59s,ef59k,ef59l
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
 
 # Kernel
-TARGET_KERNEL_CONFIG := kd_line_ef59_defconfig
-
-# ReleaseTools
-TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)/releasetools
+TARGET_KERNEL_CONFIG := ef59_defconfig
 
 # Properties
 TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
@@ -38,7 +35,9 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 26534215680
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
+BOARD_NFC_DEVICE := /dev/pn547
 NXP_CHIP_TYPE := 1
+BOARD_NFC_HAL_SUFFIX := pn54x.default
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_ef59

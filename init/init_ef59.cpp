@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2016, The LineageOS Project
+   Copyright (c) 2017, The LineageOS Project
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -26,6 +26,7 @@
  */
 
 #include <stdlib.h>
+#include <android-base/properties.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -42,14 +43,13 @@ void vendor_load_properties()
     char device_buf[PROP_VALUE_MAX];
     FILE *fp = NULL;
 
-    platform = property_get("ro.board.platform");
+    platform = android::base::GetProperty("ro.board.platform","");
     if (platform != ANDROID_TARGET)
         return;
 
     fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/phoneinfo", "r");
     if ( fp == NULL )
     {
-        INFO("Failed to open info for board version read");
         return;
     }
     else
@@ -60,18 +60,18 @@ void vendor_load_properties()
         fclose(fp);
     }
 
-    property_set("ro.product.model", device_buf);
+    android::base::SetProperty("ro.product.model", device_buf);
 
     if (strstr(device_buf, "IM-A890S")) 
     {
-        property_set("ro.product.device", "ef59s");
+        android::base::SetProperty("ro.product.device", "ef59s");
     } 
     else if (strstr(device_buf, "IM-A890K")) 
     {
-        property_set("ro.product.device", "ef59k");
+        android::base::SetProperty("ro.product.device", "ef59k");
     } 
     else if (strstr(device_buf, "IM-A890L"))
     {
-        property_set("ro.product.device", "ef59l");
+        android::base::SetProperty("ro.product.device", "ef59l");
     }
 }
