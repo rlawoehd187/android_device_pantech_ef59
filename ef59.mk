@@ -25,3 +25,8 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, device/pantech/msm8974-common/msm8974.mk)
 
 $(call inherit-product, vendor/pantech/ef59/ef59-vendor.mk)
+
+# Keylayouts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/cr-tk-300k.kl:system/vendor/usr/keylayout/cr-tk-300k.kl 
+
