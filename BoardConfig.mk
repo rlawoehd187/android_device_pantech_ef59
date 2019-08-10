@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-PLATFORM_PATH := device/pantech/ef58
+PLATFORM_PATH := device/pantech/ef59
 # Inherit from msm8974-common
 -include device/pantech/msm8974-common/BoardConfigCommon.mk
 
@@ -25,7 +25,7 @@ TARGET_OTA_ASSERT_DEVICE := ef59,ef59s,ef59k,ef59l
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
 
 # Kernel
-TARGET_KERNEL_CONFIG := ef59_defconfig
+TARGET_KERNEL_CONFIG := LineageOS_ef59_defconfig
 
 # Properties
 TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop

@@ -19,6 +19,9 @@ TARGET_SCREEN_WIDTH := 1080
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Inherit some common Lineage stuff.
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
 # Inherit from sirius device
 $(call inherit-product, device/pantech/ef59/ef59.mk)
 
@@ -28,3 +31,8 @@ PRODUCT_DEVICE := ef59
 PRODUCT_BRAND := Pantech
 PRODUCT_MANUFACTURER := Pantech
 PRODUCT_MODEL := VEGA SECRET NOTE
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="ef59-user 4.4.2 KVT49L IM-A890L.012 release-keys" 
+
+BUILD_FINGERPRINT := pantech/ef59:4.4.2/KVT49L/IM-A890L.012:user/release-keys
